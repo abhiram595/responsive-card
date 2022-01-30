@@ -1,0 +1,174 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@mixin desktop-responsive($query) {
+  @media (min-width: $query) {
+    @content;
+  }
+}
+
+@mixin mobile-responsive($query){
+  @media (min-width: $xs) and (max-width: $query) {
+    @content;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  @include mobile-responsive($lg){
+    background-color: $mobilebg;
+  }
+  @include desktop-responsive($lg) {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+  }
+}
+
+@mixin align($direction, $content) {
+  display: $direction;
+  align-items: center;
+  justify-content: $content;
+}
+
+@mixin getFont($size, $style) {
+  font-size: $size;
+  font-family: $font;
+  font-weight: $style;
+}
+
+.container {
+  @include align(flex, center);
+}
+
+.card {
+  box-shadow: 5px 10px 50px 5px lightgrey;
+  width: 80%;
+  background-color: $cardBg;
+  margin-top: 4%;
+  border-radius: 20px;
+
+  @include mobile-responsive($xs){
+    margin: 10% 0%;
+  }
+
+  @include desktop-responsive($lg) {
+    width: 30%;
+    margin-top: 3%;
+  }
+
+  img {
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  &_bottom {
+    padding: 0.5rem 2rem;
+    margin: 0;
+    @include align(block, center);
+  }
+  &_summary {
+    text-align: center;
+    h2 {
+      @include getFont(1.5rem, bold);
+      color: $darkblue;
+      margin: 0.5rem 2rem;
+    }
+    p {
+      @include getFont(1rem, normal);
+      color: $desaturatedblue;
+      margin: 0.5rem 0.5rem;
+    }
+  }
+  &_plan {
+    background-color: $verypaleblue;
+    border-radius: 5px;
+    padding: 0rem 0.5rem;
+    margin: 1.5rem 0rem;
+    flex-direction: row;
+    @include align(flex, space-between);
+    .plan_detail {
+      @include align(flex, start);
+      img {
+        height: 40px;
+        width: 40px;
+        margin: 0.5rem 0.2rem;
+      }
+      .details {
+        display: block;
+        margin: 0rem 0.1rem;
+        h6,
+        p {
+          margin: 5px;
+        }
+        h6 {
+          color: $darkblue;
+          @include getFont(0.7rem, bold);
+          @include desktop-responsive($med){
+            @include getFont(1rem, bold);
+          }
+        }
+        p {
+          color: $desaturatedblue;
+          @include getFont(0.7rem, bold);
+          @include desktop-responsive($med){
+            @include getFont(1rem, bold);
+          }
+        }
+      }
+    }
+    a {
+      color: $brightBlue;
+      text-transform: capitalize;
+      @include getFont(0.7rem, bold);
+      @include desktop-responsive($med){
+        @include getFont(1rem, bold);
+      }
+      &:hover{
+        color: $desaturatedblue
+      }
+    }
+  }
+  &_payment {
+    margin: 0.5rem 0rem;
+    display: block;
+    text-align: center;
+    button {
+      width: 100%;
+      padding: 1.2rem 0rem;
+      background-color: $brightBlue;
+      color: $cardBg;
+      outline: none;
+      border: 0;
+      border-radius: 5px;
+      @include getFont(1rem, normal);
+      box-shadow: 1px 4px 13px 0px dimgrey;
+    }
+    button,
+    a {
+      margin: 1.5rem 0rem;
+      cursor: pointer;
+    }
+    button:hover{
+      background-color: $desaturatedblue
+    }
+    a {
+      @include getFont(1rem, bold);
+      color: $desaturatedblue;
+    }
+    a:hover{
+      color: $brightBlue
+    }
+  }
+}
