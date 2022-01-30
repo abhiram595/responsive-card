@@ -26,8 +26,8 @@ body {
 @media (min-width: 60em) {
   body {
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
+    background-position: top;
+    background-color: #f5f7ff;
   }
 }
 
@@ -87,7 +87,7 @@ body {
   text-align: center;
 }
 
-.card_summary h2 {
+.card_summary h1 {
   font-size: 1.5rem;
   font-family: "Red Hat Display", sans-serif;
   font-weight: bold;
@@ -146,12 +146,12 @@ body {
   margin: 0rem 0.1rem;
 }
 
-.card_plan .plan_detail .details h6,
+.card_plan .plan_detail .details h2,
 .card_plan .plan_detail .details p {
   margin: 5px;
 }
 
-.card_plan .plan_detail .details h6 {
+.card_plan .plan_detail .details h2 {
   color: #1f2f56;
   font-size: 0.7rem;
   font-family: "Red Hat Display", sans-serif;
@@ -159,7 +159,7 @@ body {
 }
 
 @media (min-width: 40em) {
-  .card_plan .plan_detail .details h6 {
+  .card_plan .plan_detail .details h2 {
     font-size: 1rem;
     font-family: "Red Hat Display", sans-serif;
     font-weight: bold;

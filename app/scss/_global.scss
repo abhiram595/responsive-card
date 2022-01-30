@@ -30,8 +30,9 @@ body {
   }
   @include desktop-responsive($lg) {
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
+    //background-size: cover;
+    background-position: top;
+    background-color: $verypaleblue;
   }
 }
 
@@ -80,7 +81,7 @@ body {
   }
   &_summary {
     text-align: center;
-    h2 {
+    h1 {
       @include getFont(1.5rem, bold);
       color: $darkblue;
       margin: 0.5rem 2rem;
@@ -108,11 +109,11 @@ body {
       .details {
         display: block;
         margin: 0rem 0.1rem;
-        h6,
+        h2,
         p {
           margin: 5px;
         }
-        h6 {
+        h2 {
           color: $darkblue;
           @include getFont(0.7rem, bold);
           @include desktop-responsive($med){
